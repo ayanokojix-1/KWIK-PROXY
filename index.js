@@ -16,11 +16,15 @@ return res.status(400).send("Error: No video URL provided");
 }
 
 try {
+const MAX_SIZE = 3 * 1024; // 3KB limit
+
 const response = await axios({
 url: targetUrl,
 method: "GET",
 responseType: "stream",
 maxRedirects: 10,
+maxContentLength: MAX_SIZE,
+maxBodyLength: MAX_SIZE,
 headers: {
 Accept: "*/*",
 "Accept-Language": "en-US,en;q=0.8",
