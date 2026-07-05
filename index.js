@@ -116,6 +116,4 @@ app.get("/proxy", async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Proxy running on port ${PORT}`);
-});
+module.exports = app
